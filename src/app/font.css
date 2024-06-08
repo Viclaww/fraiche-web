@@ -1,0 +1,13 @@
+@tailwind base;
+
+@layer base {
+  @font-face {
+    font-family: "Porkh";
+    src: url("../../public/fonts/PORKH___.TTF") format("truetype");
+  }
+  @font-face {
+    font-family: "Porkh";
+    src: url("../../public/fonts/PORKH___.TTF") format("truetype");
+    font-weight: 700;
+  }
+}

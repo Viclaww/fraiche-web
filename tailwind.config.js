@@ -20,7 +20,8 @@ module.exports = {
         "black-prime": "#0F0F0F",
       },
       fontFamily: {
-        porky: ["Porky's", "san-serif"],
+        porky: ["Porkh", "sans-serif"],
+        poppins: ["Poppins", "san-serif"],
       },
     },
   },

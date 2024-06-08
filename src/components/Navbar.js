@@ -12,7 +12,7 @@ const Navbar = () => {
     { name: "Contact", path: "/contact" },
   ];
   return (
-    <div className="flex font-medium items-center justify-around py-5">
+    <div className="flex w-full absolute font-medium items-center justify-around py-5">
       <h2 className="text-3xl">Fraiche</h2>
       <div className="flex gap-10 text-xl">
         {navLinks.map(({ name, path }, index) => (
