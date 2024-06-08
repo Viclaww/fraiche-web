@@ -11,10 +11,13 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "hero-bg": "url('../../public/images/Header Image.png')",
       },
+
       colors: {
         "fraiche-yellow": "#FF9900",
         "flavour-green": "#07D55A",
+        "black-prime": "#0F0F0F",
       },
       fontFamily: {
         porky: ["Porky's", "san-serif"],
