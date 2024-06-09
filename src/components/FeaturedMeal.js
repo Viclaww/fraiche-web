@@ -13,7 +13,7 @@ const FeaturedMeals = () => {
     { name: "Grilled Fish", price: 2000, img: grilledfish },
   ];
   return (
-    <div className="flex font-medium md:px-24 my-5 flex-col w-full">
+    <div className="flex font-medium px-5 md:px-24 my-5 flex-col w-full">
       <div className="flex items-end my-3 justify-between">
         <h3 className="text-3xl">Featured Meals</h3>
         <Link className="text-lg text-fraiche-yellow" href="/">

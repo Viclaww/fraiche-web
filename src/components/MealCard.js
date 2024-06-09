@@ -16,7 +16,7 @@ const MealCard = ({ index, name, price, img }) => {
           height={0}
         />
       </div>
-      <div className="text-lg font-medium flex justify-between">
+      <div className="md:text-lg font-medium flex justify-between">
         <h3>{name}</h3>
         <p>N{price}</p>
       </div>
