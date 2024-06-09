@@ -1,3 +1,4 @@
+import FeaturedMeals from "@/components/FeaturedMeal";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
@@ -7,6 +8,7 @@ export default function Home() {
     <main className="relative">
       <Navbar />
       <Hero />
+      <FeaturedMeals />
     </main>
   );
 }
