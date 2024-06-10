@@ -1,8 +1,10 @@
 import AboutHome from "@/components/About";
 import FeaturedMeals from "@/components/FeaturedMeal";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import NewsLetter from "@/components/NewsLetter";
+import OurRestaurant from "@/components/OurRestaurant";
 import Image from "next/image";
 
 export default function Home() {
@@ -13,6 +15,8 @@ export default function Home() {
       <FeaturedMeals />
       <AboutHome />
       <NewsLetter />
+      <OurRestaurant />
+      <Footer />
     </main>
   );
 }
