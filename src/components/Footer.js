@@ -4,15 +4,15 @@ import { FaWhatsapp, FaInstagram, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <div className="flex font-medium  justify-evenly">
-        <div className="flex flex-col text-center gap-1">
+      <div className="flex font-medium flex-col md:flex-row flex-wrap gap-5 px-6  items-center justify-evenly">
+        <div className="flex flex-col text-center gap-1 md:order-first order-last">
           <h4 className="text-xl text-fraiche-yellow ">Contact Us</h4>
           <p>Address: 228 Oron Road</p>
           <h5 className="text-fraiche-yellow text-left">Call Line</h5>
           <span className="text-left">+234 90 9838 7664</span>
           <span className="text-left">+234 90 9838 7664</span>
         </div>
-        <div className="flex flex-col  text-center gap-3 w-1/5">
+        <div className="flex flex-col  text-center gap-3 w-auto md:w-1/5 order-1">
           <h4 className="text-xl text-fraiche-yellow">Fraiche</h4>
           <p>
             Cozy ambiance, exquisite cuisine, and exceptional service for an
@@ -33,7 +33,7 @@ const Footer = () => {
             </span>
           </div>
         </div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col order-2 gap-1">
           <h4 className="text-xl text-fraiche-yellow">Working Hours</h4>
           <h5 className="text-fraiche-yellow text-left">Monday-friday</h5>
           <p>8:00AM - 10:30PM</p>

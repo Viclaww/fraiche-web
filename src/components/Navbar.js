@@ -22,7 +22,7 @@ const Navbar = () => {
           isOpen
             ? "flex-col translate-x-0 md:flex-row md:relative fixed top-0 gap-12 w-4/5 left-0  h-screen md:w-auto md:h-auto items-center text-2xl bg-black-prime md:bg-transparent pt-16 md:pt-0"
             : "-translate-x-full "
-        } last:text-xl last:border last:border-fraiche-yellow last:py-2 last:px-4 last:rounded-md last:duration-200 last:hover:bg-fraiche-yellow`}
+        } `}
       >
         {navLinks.map(({ name, path }, index) => (
           <Link
@@ -31,8 +31,8 @@ const Navbar = () => {
             }  ${
               isOpen
                 ? "border-b md:border-0 border-fraiche-yellow w-full py-2 md:py-0 text-center"
-                : ""
-            }`}
+                : "hidden md:block"
+            } duration-400`}
             href={path}
             key={index}
           >
@@ -40,8 +40,13 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
-      <button className="">Order Now</button>
-      <span onClick={() => setIsOpen(true)} className="md:hidden">
+      <button className="hidden md:block text-xl border border-fraiche-yellow py-2 px-4 rounded-md duration-200 hover:bg-fraiche-yellow">
+        Order Now
+      </button>
+      <span
+        onClick={() => setIsOpen(true)}
+        className={`${isOpen ? "hidden" : ""} md:hidden`}
+      >
         <MdMenu size={30} />
       </span>
       <span
