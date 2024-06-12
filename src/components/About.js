@@ -1,18 +1,60 @@
+"use client";
 import Image from "next/image";
 import forhistory from "@/images/forHistory.png";
 import indomie from "@/images/indomie.png";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 const AboutHome = () => {
+  useGSAP(() => {
+    gsap.from(".img1", 1, {
+      x: -300,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".img1",
+        start: "top 90%",
+        scrub: 1,
+      },
+    });
+    gsap.from(".text1", 1, {
+      y: 300,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".text1",
+        scrub: 0.51,
+      },
+    });
+    gsap.from(".img2", 1, {
+      x: 300,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".img2",
+        start: "top",
+        scrub: 1,
+      },
+    });
+    gsap.from(".text2", {
+      x: -300,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".text2",
+        start: "top",
+        scrub: 1,
+      },
+    });
+  });
   return (
     <div className="flex flex-col px-5 gap-8 mt-16 w-full md:px-32 font-medium">
       <div className="flex flex-col justify-center items-center md:gap-9 md:flex-row">
         <Image
-          className="rounded-xl md:w-2/5"
+          className="img1 rounded-xl md:w-2/5"
           src={forhistory}
           width={0}
           height={0}
           alt="image"
         />
-        <div className="flex flex-col mt-3 md:w-[360px] gap-3 my-4">
+        <div className="flex text1 flex-col mt-3 md:w-[360px] gap-3 my-4">
           <h3 className="flex text-3xl">History</h3>
           <p className="text-justify font-normal">
             Founded in 2021, Fraiche began as a small bistro in Paris. Over the
@@ -24,13 +66,13 @@ const AboutHome = () => {
       </div>
       <div className="flex flex-col justify-center items-center md:gap-9 md:flex-row-reverse">
         <Image
-          className="rounded-xl md:w-2/5"
+          className="img2 rounded-xl md:w-2/5"
           src={indomie}
           width={0}
           height={0}
           alt="image"
         />
-        <div className="flex flex-col mt-3 md:w-[360px] gap-3 my-4">
+        <div className="text2 flex flex-col mt-3 md:w-[360px] gap-3 my-4">
           <h3 className="flex text-3xl">About Us</h3>
           <p className="text-justify font-normal">
             Franchie offers a delightful dining experience with a blend of

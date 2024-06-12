@@ -1,16 +1,36 @@
+"use client";
 import Image from "next/image";
 import heroimg1 from "@/images/heroimg1.png";
 import heroimg2 from "@/images/heroimg2.png";
 import heroimg3 from "@/images/heroimg3.png";
+import gsap from "gsap";
+import TextPlugin from "gsap/TextPlugin";
+import { useGSAP } from "@gsap/react";
+gsap.registerPlugin(TextPlugin);
 
 const Hero = () => {
+  // const flavour = document.querySelector(".flavour");
+  // console.log(flavour);
+
+  useGSAP(() => {
+    gsap.from(".flavour", 1, {
+      text: "ofualrv",
+      delay: 1,
+      ease: "none",
+    });
+    gsap.from(".left", 2, {
+      x: -200,
+      opacity: 0,
+    });
+  });
+
   return (
     <div className="w-screen md:py-32  pt-36  text-white bg-no-repeat bg-cover  h-screen bg-hero-bg">
       <div className="flex h-full py-10 md:py-0 w-full flex-col md:flex-row justify-center gap-10 items-center">
         <div className="left flex flex-col md:text-left text-center gap-3">
           <h3 className="md:text-7xl text-5xl font-semibold">
             Where{" "}
-            <span className="font-porky md:text-6xl font-medium text-flavour-green duration-0 tracking-widest">
+            <span className="flavour font-porky md:text-6xl font-medium text-flavour-green duration-0 tracking-widest">
               flavour
             </span>
             <br />

@@ -6,7 +6,7 @@ import { MdCancel, MdMenu } from "react-icons/md";
 
 const Navbar = () => {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Menu", path: "/menu" },
