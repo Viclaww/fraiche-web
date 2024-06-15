@@ -8,39 +8,38 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 const AboutHome = () => {
   useGSAP(() => {
-    gsap.from(".img1", 1, {
+    gsap.from(".img1", {
       x: -300,
       opacity: 0,
       scrollTrigger: {
         trigger: ".img1",
-        start: "top 90%",
-        scrub: 1,
+        start: "top 70%",
       },
     });
-    gsap.from(".text1", 1, {
+    gsap.from(".text1", {
       y: 300,
       opacity: 0,
+      delay: 0.8,
       scrollTrigger: {
         trigger: ".text1",
-        scrub: 0.51,
+        start: "top 70%",
       },
     });
-    gsap.from(".img2", 1, {
+    gsap.from(".img2", {
       x: 300,
       opacity: 0,
       scrollTrigger: {
         trigger: ".img2",
-        start: "top",
-        scrub: 1,
+        start: "top 70%",
       },
     });
     gsap.from(".text2", {
       x: -300,
       opacity: 0,
+      delay: 0.8,
       scrollTrigger: {
         trigger: ".text2",
-        start: "top",
-        scrub: 1,
+        start: "top 70%",
       },
     });
   });
