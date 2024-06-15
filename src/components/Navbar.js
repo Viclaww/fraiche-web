@@ -20,8 +20,8 @@ const Navbar = () => {
       <div
         className={`flex md:gap-10 duration-200 text-xl ${
           isOpen
-            ? "flex-col translate-x-0 md:flex-row md:relative fixed top-0 gap-12 w-4/5 left-0  h-screen md:w-auto md:h-auto items-center text-2xl bg-black-prime md:bg-transparent pt-16 md:pt-0"
-            : "-translate-x-full "
+            ? "flex-col translate-x-0 md:flex-row z-40 md:relative fixed top-0 gap-12 w-4/5 left-0  h-screen md:w-auto md:h-auto items-center text-2xl bg-black-prime md:bg-transparent pt-16 md:pt-0"
+            : "-translate-x-full  md:translate-x-0"
         } `}
       >
         {navLinks.map(({ name, path }, index) => (
