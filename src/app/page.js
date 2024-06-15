@@ -10,7 +10,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="relative">
+    <>
       <Navbar />
       <Hero />
       <FeaturedMeals />
@@ -19,6 +19,6 @@ export default function Home() {
       <MeetTeam />
       <OurRestaurant />
       <Footer />
-    </main>
+    </>
   );
 }

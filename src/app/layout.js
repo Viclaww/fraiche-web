@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.cdnfonts.com/css/porkys" rel="stylesheet" />
       </head>
       <body className="bg-black-prime font-poppins w-screen text-white overflow-x-hidden">
-        {children}
+        <main className="relative">{children}</main>
       </body>
     </html>
   );
