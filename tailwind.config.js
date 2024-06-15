@@ -13,6 +13,7 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "hero-bg": "url('../../public/images/Header Image.png')",
         newsletter: "url('../../public/images/News Letter.png')",
+        about: "url('../../public/images/about.png')",
         "restaurant-video-placeholder":
           "url('../../public/images/resvidimg.png')",
       },

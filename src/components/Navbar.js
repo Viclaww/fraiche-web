@@ -26,8 +26,10 @@ const Navbar = () => {
       >
         {navLinks.map(({ name, path }, index) => (
           <Link
-            className={` hover:text-fraiche-yellow ${
-              path == pathname ? "text-fraiche-yellow " : ""
+            className={` hover:text-fraiche-yellow relative ${
+              path == pathname
+                ? "text-fraiche-yellow after:content-[''] after:rounded-sm  after:left-0 after:-bottom-1 after:bg-fraiche-yellow after:w-4/5 after:absolute md:after:h-1"
+                : "after:w-0"
             }  ${
               isOpen
                 ? "border-b md:border-0 border-fraiche-yellow w-full py-2 md:py-0 text-center"
