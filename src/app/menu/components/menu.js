@@ -20,10 +20,13 @@ export default function Menu() {
     { name: "Grilled Fish", price: 2000, img: grilledfish },
   ];
   return (
-    <div className="grid grid-cols-2 py-20  md:pt-32 md:py-32 px-5 md:px-14 gap-5 md:grid-cols-3 lg:grid-cols-4">
-      {meals.map(({ name, img, price }, index) => (
-        <MealCard name={name} index={index} img={img} price={price} />
-      ))}
+    <div className="flex flex-col md:pt-32">
+      <h3 className="text-white">OUR MENU</h3>
+      <div className="grid grid-cols-2 py-20  md:pt-32 md:py-32 px-5 md:px-14 gap-5 md:grid-cols-3 lg:grid-cols-4">
+        {meals.map(({ name, img, price }, index) => (
+          <MealCard name={name} index={index} img={img} price={price} />
+        ))}
+      </div>
     </div>
   );
 }
