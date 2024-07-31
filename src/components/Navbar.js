@@ -26,7 +26,7 @@ const Navbar = () => {
       >
         {navLinks.map(({ name, path }, index) => (
           <Link
-            className={` hover:text-fraiche-yellow relative ${
+            className={`hover:text-fraiche-yellow relative ${
               path == pathname
                 ? "text-fraiche-yellow after:content-[''] after:rounded-sm  after:left-0 after:-bottom-1 after:bg-fraiche-yellow after:w-4/5 after:absolute md:after:h-1"
                 : "after:w-0"
@@ -42,9 +42,13 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
+      <Link
+      href={"/menu"}
+      >
       <button className="hidden md:block text-xl border border-fraiche-yellow py-2 px-4 rounded-md duration-200 hover:bg-fraiche-yellow">
         Order Now
       </button>
+      </Link>
       <span
         onClick={() => setIsOpen(true)}
         className={`${isOpen ? "hidden" : ""} md:hidden`}
