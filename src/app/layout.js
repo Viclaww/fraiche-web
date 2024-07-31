@@ -1,8 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Fraiche Pitch",
-  description: "Where flavour meats passion",
+  title: "Fraiche Palace Restaurant",
+  description: "Where flavour meats passion...",
 };
 
 export default function RootLayout({ children }) {

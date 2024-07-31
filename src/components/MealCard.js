@@ -12,15 +12,18 @@ const MealCard = ({ index, name, price, img }) => {
           src={img}
           className="w-full h-full object-fill"
           alt={name}
-          width={0}
-          height={0}
+          width={150}
+          height={150}
         />
       </div>
       <div className="md:text-lg font-medium flex justify-between">
         <h3>{name}</h3>
         <p>N{price}</p>
       </div>
-      <button className="bg-fraiche-yellow py-2 rounded-md">Order Now</button>
+      
+      <a href={`https://wa.me/2347025706611/?text=I want to Buy ${name} for N${price} from Fraiche Palace Restaurant`}>
+        <button className="bg-fraiche-yellow py-2 rounded-md w-full">Order Now</button>
+      </a>
     </div>
   );
 };
