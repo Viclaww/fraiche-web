@@ -88,7 +88,7 @@ export default function Menu() {
               filters.forEach((x,y) => {x.active = false});
               filters[y].active = true;
               if(meal.filter !== "All"){
-                setMeals(meals.filter((x) => x.tag == meal.filter));
+                setMeals(meals.filter((x) => x.tag == meal.tag));
               } else {
                 setMeals(...fetchedMeals);
               }
