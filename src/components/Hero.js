@@ -28,24 +28,24 @@ const Hero = () => {
     <div className="w-screen md:py-32  pt-36  text-white bg-no-repeat bg-cover  h-screen bg-hero-bg">
       <div className="flex h-full py-10 md:py-0 w-full flex-col md:flex-row justify-center gap-10 items-center">
         <div className="left flex flex-col md:text-left text-center gap-3">
-          <h3 className="md:text-7xl text-5xl font-semibold">
-            Where{" "}
-            <span className="flavour font-porky md:text-6xl font-medium text-flavour-green duration-0 tracking-widest">
-              flavour
+          <h3 className="md:text-6xl text-5xl font-semibold">
+            Where every 
+            <span className="flavour font-porky md:text-6xl ml-5 font-medium text-flavour-green duration-0 tracking-widest">
+              bite
             </span>
             <br />
-            Meets Passion
+            tells a story
           </h3>
           <p className="md:text-3xl text-xl font-medium">
-            Experience fraiche's Mastery
+            Experience Fraiche's Mastery
           </p>
           <div className="text-lg flex flex-col md:flex-row w-full gap-3">
             <button className="border-fraiche-yellow border rounded-md py-2 px-4">
               Order Now
             </button>
-            <button className="bg-fraiche-yellow py-2 px-4 rounded-sm">
+            {/* <button className="bg-fraiche-yellow py-2 px-4 rounded-sm">
               Make A Reservation
-            </button>
+            </button> */}
           </div>
         </div>
         <div className="w-2/3 md:w-1/3 ">

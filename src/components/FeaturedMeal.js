@@ -20,7 +20,7 @@ const FeaturedMeals = async () => {
       </div>
       <div className="grid gap-5 md:grid-cols-4 grid-cols-2">
         {meals.data.slice(0,4).map(({ name, price, image }, index) => (
-          <MealCard key={index} index={index} img={image} name={name} price={price} />
+          <MealCard index={index} img={image} name={name} price={price} />
         ))}
       </div>
     </div>
