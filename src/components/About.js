@@ -66,7 +66,7 @@ const AboutHome = () => {
       <div className="flex flex-col justify-center items-center md:gap-9 md:flex-row-reverse">
         <Image
           className="img2 rounded-xl md:w-2/5"
-          src={indomie}
+          src={"/public/images/IMG_6213.JPG"}
           width={0}
           height={0}
           alt="image"

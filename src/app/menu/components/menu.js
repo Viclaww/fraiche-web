@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import MealCard from "@/components/MealCard";
 import heroimg1 from "@/images/heroimg1.png";
 export default function Menu() {
+  const [fetchedMeals, setFetchedMeals] = useState([]);
   const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,19 +13,18 @@ export default function Menu() {
       active: true,
     },
     {
-      filter: "African Dishes",
+      filter: "African",
+      name: "African Dishes",
       active: false,
     },
     {
-      filter: "Intercontinental Dishes",
+      filter: "Inter Dishes",
+      name: "Intercontinental Dishes",
       active: false,
     },
     {
-      filter: "Continental Dishes",
-      active: false,
-    },
-    {
-      filter: "Specials",
+      filter: "Continental",
+      name: "Continental Dishes",
       active: false,
     },
   ]);
@@ -40,6 +40,7 @@ export default function Menu() {
         }
         const result = await response.json();
         setMeals(result);
+        setFetchedMeals(result);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -86,11 +87,15 @@ export default function Menu() {
             onClick={() => {
               filters.forEach((x,y) => {x.active = false});
               filters[y].active = true;
-              // setMeals(meals.filter((x) => x.tag === meal.filter));
+              if(meal.filter !== "All"){
+                setMeals(meals.filter((x) => x.tag == meal.filter));
+              } else {
+                setMeals(...fetchedMeals);
+              }
               setFilters([...filters]);
             }}
           >
-            {meal.filter}
+            {meal.name}
           </div>
         ))}
       </button>
