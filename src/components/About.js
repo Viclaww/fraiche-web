@@ -19,10 +19,10 @@ const AboutHome = () => {
     gsap.from(".text1", {
       y: 300,
       opacity: 0,
-      delay: 0.8,
+      delay: 0,
       scrollTrigger: {
         trigger: ".text1",
-        start: "top 70%",
+        start: "top 50%",
       },
     });
     gsap.from(".img2", {
@@ -36,10 +36,10 @@ const AboutHome = () => {
     gsap.from(".text2", {
       x: -300,
       opacity: 0,
-      delay: 0.8,
+      delay: 0,
       scrollTrigger: {
         trigger: ".text2",
-        start: "top 70%",
+        start: "top 50%",
       },
     });
   });

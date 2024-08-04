@@ -1,14 +1,13 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import Gallery from "./gallery";
 // import Menu from "@/components/menu";
 export default function Page() {
   return (
     <>
       <Navbar />
-      <div className="h-[400px] pt-48 flex flex-row items-center justify-center">
-        <h1>
-          Coming soon
-        </h1>
+      <div className=" pt-2 flex flex-col items-center justify-center">
+        <Gallery />
       </div>
       <Footer />
     </>
