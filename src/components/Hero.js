@@ -6,6 +6,7 @@ import heroimg3 from "@/images/heroimg3.png";
 import gsap from "gsap";
 import TextPlugin from "gsap/TextPlugin";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
 gsap.registerPlugin(TextPlugin);
 
 const Hero = () => {
@@ -39,16 +40,19 @@ const Hero = () => {
           <p className="md:text-3xl text-xl font-medium">
             Experience Fraiche's Mastery
           </p>
-          <div className="text-lg flex flex-col md:flex-row w-full gap-3">
-            <button className="border-fraiche-yellow border rounded-md py-2 px-4">
+          <div className="text-lg flex justify-center flex-row w-full gap-3">
+            <Link
+              href={"/menu"}
+              className="border-fraiche-yellow bg-fraiche-yellow w-fit border rounded-md py-2 px-4"
+            >
               Order Now
-            </button>
+            </Link>
             {/* <button className="bg-fraiche-yellow py-2 px-4 rounded-sm">
               Make A Reservation
             </button> */}
           </div>
         </div>
-        <div className="w-2/3 md:w-1/3 ">
+        <div className="w-2/3 scale-75 md:scale-100 md:w-1/3 ">
           <div className="grid gap-3 grid-cols-2">
             <Image
               className="w-full"
