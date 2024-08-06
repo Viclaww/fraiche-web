@@ -2,7 +2,8 @@
 import Image from "next/image";
 import heroimg1 from "@/images/heroimg1.png";
 import heroimg2 from "@/images/heroimg2.png";
-import heroimg3 from "@/images/heroimg3.png";
+import heroimg3 from "@/images/jolloffy.png";
+import friedRice from '@/images/friedrice.png'
 import gsap from "gsap";
 import TextPlugin from "gsap/TextPlugin";
 import { useGSAP } from "@gsap/react";
@@ -29,37 +30,40 @@ const Hero = () => {
     <div className="w-screen md:py-32  pt-36  text-white bg-no-repeat bg-cover  h-screen bg-hero-bg">
       <div className="flex h-full py-10 md:py-0 w-full flex-col md:flex-row justify-center gap-10 items-center">
         <div className="left flex flex-col md:text-left text-center gap-3">
-          <h3 className="md:text-7xl text-5xl font-semibold">
-            Where{" "}
-            <span className="flavour font-porky md:text-6xl font-medium text-flavour-green duration-0 tracking-widest">
-              flavour
+          <h3 className="md:text-6xl text-5xl font-semibold">
+            Where every 
+            <span className="flavour font-porky md:text-6xl ml-5 font-medium text-flavour-green duration-0 tracking-widest">
+              bite
             </span>
             <br />
-            Meets Passion
+            tells a story
           </h3>
           <p className="md:text-3xl text-xl font-medium">
-            Experience fraiche's Mastery
+            Experience Fraiche's Mastery
           </p>
-          <div className="text-lg flex justify-center flex-row w-full gap-3">
+          <div className="text-lg flex justify-center md:justify-start flex-row w-full gap-3">
             <Link
               href={"/menu"}
               className="border-fraiche-yellow bg-fraiche-yellow w-fit border rounded-md py-2 px-4"
             >
               Order Now
             </Link>
+            {/* <button className="bg-fraiche-yellow py-2 px-4 rounded-sm">
+              Make A Reservation
+            </button> */}
           </div>
         </div>
         <div className="w-2/3 scale-75 md:scale-100 md:w-1/3 ">
           <div className="grid gap-3 grid-cols-2">
             <Image
-              className="w-full"
-              src={heroimg1}
+              className="w-full h-full"
+              src={friedRice}
               alt="image"
               width={0}
               height={0}
             />
             <Image
-              className="row-span-2 h-full"
+              className="row-span-2 h-full object-cover object-center"
               src={heroimg3}
               alt="image"
               width={0}
