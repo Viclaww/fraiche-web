@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import MealCard from "@/components/MealCard";
 import heroimg1 from "@/images/heroimg1.png";
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
+console.log(BACKEND_URL);
 export default function Menu() {
   const [fetchedMeals, setFetchedMeals] = useState([]);
   const [meals, setMeals] = useState([]);
@@ -10,6 +12,7 @@ export default function Menu() {
   const [filters, setFilters] = useState([
     {
       filter: "All",
+      name: "All",
       active: true,
     },
     {
@@ -33,7 +36,7 @@ export default function Menu() {
     const fetchMeals = async () => {
       try {
         const response = await fetch(
-          "https://fraiche-backend.onrender.com/api/v1/meals"
+          `${BACKEND_URL}/api/v1/meals`
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");

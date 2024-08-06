@@ -4,9 +4,9 @@ import jollof from "@/images/jollofrice.png";
 import fries from "@/images/chips.png";
 import friedrice from "@/images/friedrice.png";
 import grilledfish from "@/images/grilledfish.png";
-
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL
 const FeaturedMeals = async () => {
-  let meals = await fetch('https://fraiche-backend.onrender.com/api/v1/meals', {
+  let meals = await fetch(`${BACKEND_URL}/api/v1/meals`, {
     cache: 'no-store'
   });
   meals = await meals.json();

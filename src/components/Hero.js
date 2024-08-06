@@ -2,7 +2,8 @@
 import Image from "next/image";
 import heroimg1 from "@/images/heroimg1.png";
 import heroimg2 from "@/images/heroimg2.png";
-import heroimg3 from "@/images/heroimg3.png";
+import heroimg3 from "@/images/jolloffy.png";
+import friedRice from '@/images/friedrice.png'
 import gsap from "gsap";
 import TextPlugin from "gsap/TextPlugin";
 import { useGSAP } from "@gsap/react";
@@ -40,7 +41,7 @@ const Hero = () => {
           <p className="md:text-3xl text-xl font-medium">
             Experience Fraiche's Mastery
           </p>
-          <div className="text-lg flex justify-center flex-row w-full gap-3">
+          <div className="text-lg flex justify-center md:justify-start flex-row w-full gap-3">
             <Link
               href={"/menu"}
               className="border-fraiche-yellow bg-fraiche-yellow w-fit border rounded-md py-2 px-4"
@@ -55,14 +56,14 @@ const Hero = () => {
         <div className="w-2/3 scale-75 md:scale-100 md:w-1/3 ">
           <div className="grid gap-3 grid-cols-2">
             <Image
-              className="w-full"
-              src={heroimg1}
+              className="w-full h-full"
+              src={friedRice}
               alt="image"
               width={0}
               height={0}
             />
             <Image
-              className="row-span-2 h-full"
+              className="row-span-2 h-full object-cover object-center"
               src={heroimg3}
               alt="image"
               width={0}

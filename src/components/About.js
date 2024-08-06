@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import forhistory from "@/images/forHistory.png";
-import indomie from "@/images/indomie.png";
+import Jollof from '../../public/images/IMG_6213.png';
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
@@ -65,8 +65,8 @@ const AboutHome = () => {
       </div>
       <div className="flex flex-col justify-center items-center md:gap-9 md:flex-row-reverse">
         <Image
-          className="img2 rounded-xl md:w-2/5"
-          src={"/public/images/IMG_6213.JPG"}
+          className="img2 h-[300px] object-cover rounded-xl md:w-2/5"
+          src={Jollof}
           width={0}
           height={0}
           alt="image"
