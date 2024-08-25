@@ -7,16 +7,19 @@ import { FaPlus } from "react-icons/fa6";
 
 export default function Page() {
   const [cartMeals, setCartMeals] = useState([]);
+  const [subTotal, setSubTotal] = useState(0);
   const locallyStoredMeals = JSON.parse(localStorage.getItem("fraiche-cart"));
+
   useEffect(() => {
     if (locallyStoredMeals) {
       setCartMeals(locallyStoredMeals);
-      // console.log(cartMeals.reduce((acc, next) => acc + next.meal.price));
+      const priceArray = locallyStoredMeals.map((meal) => meal.meal.price);
+      setSubTotal(priceArray.reduce((acc, next) => acc + next.meal.price));
     } else {
       setCartMeals([]);
     }
     // console.log(cartMeals);
-  }, [locallyStoredMeals]);
+  }, []);
 
   const handleQuantityUpdate = (action, id) => {
     const indexToUpdate = cartMeals.findIndex((x) => x.meal._id === id);
@@ -44,11 +47,7 @@ export default function Page() {
       </di>
       <div className="flex w-full justify-between bg-[#1F1F1F] py-6 px-4 text-2xl font-semibold my-5">
         <h4>Sub_Total</h4>
-        <span>
-          {/* {cartMeals && cartMeals.length > 0
-            ? cartMeals.reduce((acc, next) => acc + next.meal.price)
-            : "N0"} */}
-        </span>
+        <span>{subTotal}</span>
       </div>
       <div className="w-full md:w-1/3">
         {cartMeals && cartMeals.length > 0 ? (

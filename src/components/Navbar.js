@@ -44,15 +44,15 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
-      <div className="flex items-center gap-4">
-        <span className="relative">
+      <div className="flex  items-center gap-4">
+        <Link href="/checkout" className="relative">
           <span className="absolute text-white bg-red-600 w-5 h-5 flex justify-center -top-2 -right-2 rounded-full">
             {cartMeals && cartMeals.length > 0 && cartMeals.length > 10
               ? `10+`
               : `${cartMeals.length}`}
           </span>
           <FaCartArrowDown size={30} />
-        </span>
+        </Link>
 
         <Link href={"/menu"}>
           <button className="hidden md:block text-xl border border-fraiche-yellow py-2 px-4 rounded-md duration-200 hover:bg-fraiche-yellow">
