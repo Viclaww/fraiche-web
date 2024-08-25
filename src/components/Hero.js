@@ -3,7 +3,7 @@ import Image from "next/image";
 import heroimg1 from "@/images/heroimg1.png";
 import heroimg2 from "@/images/heroimg2.png";
 import heroimg3 from "@/images/jolloffy.png";
-import friedRice from '@/images/friedrice.png'
+import friedRice from "@/images/friedrice.png";
 import gsap from "gsap";
 import TextPlugin from "gsap/TextPlugin";
 import { useGSAP } from "@gsap/react";
@@ -16,7 +16,7 @@ const Hero = () => {
 
   useGSAP(() => {
     gsap.from(".flavour", 1, {
-      text: "ofualrv",
+      text: "tbei",
       delay: 1,
       ease: "none",
     });
@@ -31,7 +31,7 @@ const Hero = () => {
       <div className="flex h-full py-10 md:py-0 w-full flex-col md:flex-row justify-center gap-10 items-center">
         <div className="left flex flex-col md:text-left text-center gap-3">
           <h3 className="md:text-6xl text-5xl font-semibold">
-            Where every 
+            Where every
             <span className="flavour font-porky md:text-6xl ml-5 font-medium text-flavour-green duration-0 tracking-widest">
               bite
             </span>

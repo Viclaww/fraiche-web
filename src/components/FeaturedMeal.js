@@ -4,10 +4,10 @@ import jollof from "@/images/jollofrice.png";
 import fries from "@/images/chips.png";
 import friedrice from "@/images/friedrice.png";
 import grilledfish from "@/images/grilledfish.png";
-const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 const FeaturedMeals = async () => {
   let meals = await fetch(`${BACKEND_URL}/api/v1/meals`, {
-    cache: 'no-store'
+    cache: "no-store",
   });
   meals = await meals.json();
   return (
@@ -19,8 +19,8 @@ const FeaturedMeals = async () => {
         </Link>
       </div>
       <div className="grid gap-5 md:grid-cols-4 grid-cols-2">
-        {meals.data.slice(0,4).map(({ name, price, image }, index) => (
-          <MealCard index={index} img={image} name={name} price={price} />
+        {meals?.data?.slice(0, 4).map((meal, index) => (
+          <MealCard index={index} {...meal} />
         ))}
       </div>
     </div>

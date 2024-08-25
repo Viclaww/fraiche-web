@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { FaCartArrowDown } from "react-icons/fa6";
 import { MdCancel, MdMenu } from "react-icons/md";
 
 const Navbar = () => {
@@ -14,6 +15,7 @@ const Navbar = () => {
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },
   ];
+  const cartMeals = JSON.parse(localStorage.getItem("fraiche-cart")) || [];
   return (
     <div className="flex w-full absolute font-medium items-center justify-around py-5">
       <h2 className="text-3xl">Fraiche</h2>
@@ -42,13 +44,23 @@ const Navbar = () => {
           </Link>
         ))}
       </div>
-      <Link
-      href={"/menu"}
-      >
-      <button className="hidden md:block text-xl border border-fraiche-yellow py-2 px-4 rounded-md duration-200 hover:bg-fraiche-yellow">
-        Order Now
-      </button>
-      </Link>
+      <div className="flex items-center gap-4">
+        <span className="relative">
+          <span className="absolute text-white bg-red-600 w-5 h-5 flex justify-center -top-2 -right-2 rounded-full">
+            {cartMeals && cartMeals.length > 0 && cartMeals.length > 10
+              ? `10+`
+              : `${cartMeals.length}`}
+          </span>
+          <FaCartArrowDown size={30} />
+        </span>
+
+        <Link href={"/menu"}>
+          <button className="hidden md:block text-xl border border-fraiche-yellow py-2 px-4 rounded-md duration-200 hover:bg-fraiche-yellow">
+            Order Now
+          </button>
+        </Link>
+      </div>
+
       <span
         onClick={() => setIsOpen(true)}
         className={`${isOpen ? "hidden" : ""} md:hidden`}
