@@ -1,13 +1,14 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaCartArrowDown } from "react-icons/fa6";
 import { MdCancel, MdMenu } from "react-icons/md";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const [cartMeals, setCartMeals] = useState([]);
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Menu", path: "/menu" },
@@ -15,7 +16,18 @@ const Navbar = () => {
     { name: "Gallery", path: "/gallery" },
     { name: "Contact", path: "/contact" },
   ];
-  const cartMeals = JSON.parse(localStorage.getItem("fraiche-cart")) || [];
+
+  const locallyStoredMeals = () => {
+    return JSON.parse(localStorage.getItem("fraiche-cart") || "[]");
+  };
+  useEffect(() => {
+    if (locallyStoredMeals()) {
+      setCartMeals(locallyStoredMeals());
+    } else {
+      setCartMeals([]);
+    }
+  }, []);
+
   return (
     <div className="flex w-full absolute font-medium items-center justify-around py-5">
       <h2 className="text-3xl">Fraiche</h2>

@@ -1,28 +1,14 @@
 "use client";
 import Image from "next/image";
-import { useState, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 
-const MealCard = (meal) => {
+const MealCard = ({ meal, addToCart }) => {
   const [ordering, setOrdering] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
-  const cartMeals = JSON.parse(localStorage.getItem("fraiche-cart")) || [];
-  console.log(cartMeals);
-
-  const addToCart = () => {
-    let newCart;
-    console.log(cartMeals);
-    if (cartMeals) {
-      newCart = [...cartMeals, { meal, quantity }];
-    } else {
-      newCart = [{ meal, quantity }];
-    }
-
-    localStorage.setItem("fraiche-cart", JSON.stringify(newCart));
-  };
-
   const handleQuantityUpdate = (action) => {
+    const cartMeals = JSON.parse(localStorage());
     const indexToUpdate = cartMeals.findIndex((x) => x.meal._id === meal._id);
 
     if (indexToUpdate !== -1) {
@@ -88,7 +74,7 @@ const MealCard = (meal) => {
       ) : (
         <button
           onClick={() => {
-            addToCart();
+            addToCart(meal, quantity);
             setOrdering(true);
           }}
           className="bg-fraiche-yellow py-2 rounded-md w-full px-4"
