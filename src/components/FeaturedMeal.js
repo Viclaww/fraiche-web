@@ -7,7 +7,6 @@ const FeaturedMeals = async () => {
   let meals = await fetch(`${BACKEND_URL}/api/v1/meals`, {
     cache: "no-store",
   });
-
   meals = await meals.json();
 
   return (

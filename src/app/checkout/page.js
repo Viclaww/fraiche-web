@@ -3,6 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaMinus, FaPlus, FaTrash } from "react-icons/fa6";
+import Footer from "@/components/Footer";
+import axios from "axios";
+
+const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 
 export default function Page() {
   const locallyStoredMeals = () => {
@@ -10,16 +14,28 @@ export default function Page() {
       return localStorage.getItem("fraiche-cart");
     }
   };
-
+  const [email, setEmail] = useState("");
   const [cartMeals, setCartMeals] = useState([]);
+  const [subTotal, setSubTotal] = useState(0);
+  const handleCheckout = async () => {
+    const endpoint = `${BACKEND_URL}/api/v1/meals/checkout`;
 
+    const response = await fetch(endpoint, {
+      method: "POST",
+      body: {
+        buyer: "email@mail.com",
+        amount: subTotal,
+        mealsBought: cartMeals,
+      },
+    });
+
+    console.log(response.json());
+  };
   useEffect(() => {
     if (locallyStoredMeals()) {
       setCartMeals(JSON.parse(locallyStoredMeals()));
     }
   }, []);
-
-  const [subTotal, setSubTotal] = useState(0);
 
   useEffect(() => {
     const calculateTotal = () => {
@@ -56,88 +72,94 @@ export default function Page() {
   };
 
   return (
-    <div className="px-10 flex flex-col items-center">
-      <div className="flex mt-10 w-full items-end justify-between">
-        <h2 className="md:text-5xl text-2xl font-bold">Cart Summary</h2>
+    <>
+      <div className="px-10 flex flex-col items-center">
+        <div className="flex mt-10 w-full items-end justify-between">
+          <h2 className="md:text-5xl text-2xl font-bold">Cart Summary</h2>
 
-        <Link className="text-fraiche-yellow" href="/menu">
-          Back to Menu
-        </Link>
-      </div>
-      <div className="flex w-full justify-between bg-[#1F1F1F] py-6 px-4 text-2xl font-semibold my-5">
-        <h4>Sub_Total</h4>
-        <span>{subTotal}</span>
-      </div>
-      <div className="w-full flex flex-col md:w-1/3">
-        {cartMeals.length > 0 ? (
-          <div className="flex gap-2 flex-col">
-            {cartMeals.map(({ meal, quantity }, index) => (
-              <div
-                key={index}
-                className="border-fraiche-yellow border p-3 rounded-lg"
-              >
-                <div className="flex p">
-                  <div className="w-1/2 h-1/6 rounded-t-lg zoomContainer">
-                    <Image
-                      src={meal.image}
-                      className="w-full h-full rounded-lg zoomImage"
-                      alt={meal.name}
-                      width={500}
-                      height={300}
-                    />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-3xl font-medium">{meal.name}</span>
-                    <span>
-                      Price:{" "}
-                      <span className="font-medium text-fraiche-yellow">
-                        {meal.price}
-                      </span>
-                    </span>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex flex-wrap items-center justify-between gap-5">
-                    <div className="flex items-center w-1/2 justify-between">
-                      <button
-                        onClick={() => {
-                          if (quantity < 1) return;
-                          handleQuantityUpdate("minus", meal._id);
-                        }}
-                        className="bg-fraiche-yellow rounded-md p-3"
-                      >
-                        <FaMinus size={20} />
-                      </button>
-                      {quantity}
-                      <button
-                        onClick={() => {
-                          handleQuantityUpdate("plus", meal._id);
-                        }}
-                        className="bg-fraiche-yellow rounded-md p-3"
-                      >
-                        <FaPlus />
-                      </button>
+          <Link className="text-fraiche-yellow" href="/menu">
+            Back to Menu
+          </Link>
+        </div>
+        <div className="flex w-full justify-between bg-[#1F1F1F] py-6 px-4 text-2xl font-semibold my-5">
+          <h4>Sub_Total</h4>
+          <span>{subTotal}</span>
+        </div>
+        <div className="w-full flex flex-col md:w-1/3">
+          {cartMeals.length > 0 ? (
+            <div className="flex gap-2 flex-col">
+              {cartMeals.map(({ meal, quantity }, index) => (
+                <div
+                  key={index}
+                  className="border-fraiche-yellow border p-3 rounded-lg"
+                >
+                  <div className="flex p">
+                    <div className="w-1/2 h-1/6 rounded-t-lg zoomContainer">
+                      <Image
+                        src={meal.image}
+                        className="w-full h-full rounded-lg zoomImage"
+                        alt={meal.name}
+                        width={500}
+                        height={300}
+                      />
                     </div>
-                    <div
-                      onClick={() => handleRemove(meal._id)}
-                      className="flex cursor-pointer justify-self-end self-end"
-                    >
-                      <span className="text-red-700 flex gap-2 items-end">
-                        <FaTrash size={25} /> Remove
+                    <div className="flex flex-col">
+                      <span className="text-3xl font-medium">{meal.name}</span>
+                      <span>
+                        Price:{" "}
+                        <span className="font-medium text-fraiche-yellow">
+                          {meal.price}
+                        </span>
                       </span>
                     </div>
                   </div>
+                  <div>
+                    <div className="flex flex-wrap items-center justify-between gap-5">
+                      <div className="flex items-center w-1/2 justify-between">
+                        <button
+                          onClick={() => {
+                            if (quantity < 1) return;
+                            handleQuantityUpdate("minus", meal._id);
+                          }}
+                          className="bg-fraiche-yellow rounded-md p-3"
+                        >
+                          <FaMinus size={20} />
+                        </button>
+                        {quantity}
+                        <button
+                          onClick={() => {
+                            handleQuantityUpdate("plus", meal._id);
+                          }}
+                          className="bg-fraiche-yellow rounded-md p-3"
+                        >
+                          <FaPlus />
+                        </button>
+                      </div>
+                      <div
+                        onClick={() => handleRemove(meal._id)}
+                        className="flex cursor-pointer justify-self-end self-end"
+                      >
+                        <span className="text-red-700 flex gap-2 items-end">
+                          <FaTrash size={25} /> Remove
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          "No items in cart"
-        )}
-        <button className="flex w-full justify-center my-2 py-2  bg-fraiche-yellow rounded">
-          Checkout
-        </button>
+              ))}
+            </div>
+          ) : (
+            "No items in cart"
+          )}
+          <button
+            onClick={handleCheckout}
+            className="flex w-full justify-center my-2 py-2  bg-fraiche-yellow rounded"
+          >
+            Checkout
+          </button>
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }
